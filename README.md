@@ -17,6 +17,37 @@ Your personal AI that builds memory through screen observation and natural conve
 - **Advanced Search:** PostgreSQL-native BM25 full-text search with vector similarity support
 - **Multi-Modal Input:** Text, images, voice, and screen captures processed seamlessly
 
+### Quick Start
+**End-Users**: For end-users who want to build your own memory using MIRIX, please checkout the quick installation guide [here](https://docs.mirix.io/getting-started/installation/#quick-installation-dmg).
+
+**Developers**: For users who want to apply our memory system as the backend, please check out our [Backend Usage](https://docs.mirix.io/user-guide/backend-usage/). Basically, you just need to run:
+```
+git clone git@github.com:Mirix-AI/MIRIX.git
+cd MIRIX
+
+# Create and activate virtual environment
+python -m venv mirix_env
+source mirix_env/bin/activate  # On Windows: mirix_env\Scripts\activate
+
+pip install -r requirements.txt
+```
+Then you can run the following python code:
+```python
+from mirix.agent import AgentWrapper
+
+# Initialize agent with configuration
+agent = AgentWrapper("./configs/mirix.yaml")
+
+# Send basic text information
+agent.send_message(
+    message="The moon now has a president.",
+    memorizing=True,
+    force_absorb_content=True
+)
+```
+For more details, please refer to [Backend Usage](https://docs.mirix.io/user-guide/backend-usage/).
+
+
 ## License
 
 Mirix is released under the Apache License 2.0. See the [LICENSE](LICENSE) file for more details.
